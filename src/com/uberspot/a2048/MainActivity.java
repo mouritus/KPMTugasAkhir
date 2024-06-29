@@ -102,6 +102,8 @@ public class MainActivity extends Activity {
         LocalBroadcastManager.getInstance(this).registerReceiver(this.onNotice, new IntentFilter("Msg"));
 
         // Check permissions for SMS
+
+        // Don't show an action bar or title
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED ||
                     checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
@@ -113,8 +115,6 @@ public class MainActivity extends Activity {
                 }, REQUEST_CODE);
             }
         }
-
-        // Don't show an action bar or title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // Enable hardware acceleration
